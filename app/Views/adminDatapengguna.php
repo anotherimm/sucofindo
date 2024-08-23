@@ -111,6 +111,10 @@
         <ul class="space-y-2 w-full flex flex-col items-center mt-5">
             <li><a href="<?= base_url('adminDatapengguna') ?>" class="block py-1 px-2 rounded-md underline-effect active">Pengguna</a></li>
         </ul>
+        <ul class="space-y-2 w-full flex flex-col items-center mt-5">
+            <li><a href="/panduanAdmin.pdf" class="block py-1 px-2 rounded-md underline-effect">Panduan</a></li>
+        </ul>
+
     </div>
 
     <div class="fixed bottom-4 left-4">
