@@ -108,8 +108,8 @@
         .w-7 {
             width: 19%;
         }
-        
-         .shadow-blue {
+
+        .shadow-blue {
             box-shadow: 0 0 10px rgba(0, 0, 255, 0.5);
         }
 
@@ -126,7 +126,6 @@
             overflow: hidden;
             /* Pastikan modal tidak scroll */
         }
-        
     </style>
 </head>
 
@@ -164,6 +163,9 @@
         <!-- Menambahkan bagian baru untuk data pengguna -->
         <ul class="space-y-2 w-full flex flex-col items-center mt-5">
             <li><a href="<?= base_url('adminDatapengguna') ?>" class="block py-1 px-2 rounded-md underline-effect">Pengguna</a></li>
+        </ul>
+        <ul class="space-y-2 w-full flex flex-col items-center mt-5">
+            <li><a href="/panduanAdmin.pdf" class="block py-1 px-2 rounded-md underline-effect">Panduan</a></li>
         </ul>
 
 
@@ -230,7 +232,7 @@
                         <th class="w-7 border p-3">Aksi</th>
                     </tr>
                 </thead>
-                
+
                 <style>
                     .shadow-blue {
                         box-shadow: 0 0 10px rgba(0, 0, 255, 0.5);
@@ -540,97 +542,97 @@
 
 
         // Mengambil detail dokumen berdasarkan ID dan menampilkan di modal
-function fetchDocumentDetails(button) {
-    var documentId = button.getAttribute('data-id');
-    fetch(`/getDocumentDetails?id=${documentId}`)
-        .then(response => response.json())
-        .then(data => {
-            document.getElementById('namaDokumen').value = data.nama_dokumen;
-            document.getElementById('jenisDokumen').value = data.jenis_dokumen;
-            document.getElementById('namaBidang').value = data.nama_bidang;
-            document.getElementById('KABID').value = data.KABID; // Menampilkan nama KABID
-            document.getElementById('tanggal').value = data.tanggal;
-            document.getElementById('jumlah').value = data.jumlah;
-            document.getElementById('harga_satuan').value = formatRupiah(data.harga_satuan);
-            document.getElementById('total_harga').value = formatRupiah(data.total_harga);
+        function fetchDocumentDetails(button) {
+            var documentId = button.getAttribute('data-id');
+            fetch(`/getDocumentDetails?id=${documentId}`)
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('namaDokumen').value = data.nama_dokumen;
+                    document.getElementById('jenisDokumen').value = data.jenis_dokumen;
+                    document.getElementById('namaBidang').value = data.nama_bidang;
+                    document.getElementById('KABID').value = data.KABID; // Menampilkan nama KABID
+                    document.getElementById('tanggal').value = data.tanggal;
+                    document.getElementById('jumlah').value = data.jumlah;
+                    document.getElementById('harga_satuan').value = formatRupiah(data.harga_satuan);
+                    document.getElementById('total_harga').value = formatRupiah(data.total_harga);
 
-            // Populate TOR details if available
-            document.getElementById('tanggalDikirim').value = data.tanggal_dikirim || '';
-            document.getElementById('tanggalDiterima').value = data.tanggal_diterima || '';
-            document.getElementById('penerimaDokumen').value = data.penerima_dokumen || '';
+                    // Populate TOR details if available
+                    document.getElementById('tanggalDikirim').value = data.tanggal_dikirim || '';
+                    document.getElementById('tanggalDiterima').value = data.tanggal_diterima || '';
+                    document.getElementById('penerimaDokumen').value = data.penerima_dokumen || '';
 
-            // Populate Budgeting details if available
-            document.getElementById('tanggalMasukBudget').value = data.tanggal_masuk_budget || '';
-            document.getElementById('tanggalDiterimaBudget').value = data.tanggal_diterima_setelah_budgeting || '';
-            document.getElementById('penerimaDokumenBudget').value = data.penerima_dokumen_budget || '';
+                    // Populate Budgeting details if available
+                    document.getElementById('tanggalMasukBudget').value = data.tanggal_masuk_budget || '';
+                    document.getElementById('tanggalDiterimaBudget').value = data.tanggal_diterima_setelah_budgeting || '';
+                    document.getElementById('penerimaDokumenBudget').value = data.penerima_dokumen_budget || '';
 
-            // Populate PPBJ details if available
-            document.getElementById('nomorPpbj').value = data.nomor_ppbj || '';
-            document.getElementById('tanggalPpbj').value = data.tanggal_ppbj || '';
-            document.getElementById('nilaiPpbj').value = formatRupiah(data.nilai_ppbj) || '';
-            document.getElementById('tanggalPelimpahan').value = data.tanggal_pelimpahan || '';
-            document.getElementById('penerimaDokumenppbj').value = data.penerima_dokumenppbj || '';
+                    // Populate PPBJ details if available
+                    document.getElementById('nomorPpbj').value = data.nomor_ppbj || '';
+                    document.getElementById('tanggalPpbj').value = data.tanggal_ppbj || '';
+                    document.getElementById('nilaiPpbj').value = formatRupiah(data.nilai_ppbj) || '';
+                    document.getElementById('tanggalPelimpahan').value = data.tanggal_pelimpahan || '';
+                    document.getElementById('penerimaDokumenppbj').value = data.penerima_dokumenppbj || '';
 
-            // Populate Surat pesanan details if available
-            document.getElementById('nomorPesanan').value = data.nomor_pesanan || '';
-            document.getElementById('tanggalPesanan').value = data.tanggal_pesanan || '';
-            document.getElementById('nilaiPesanan').value = formatRupiah(data.harga_pesanan) || '';
-            document.getElementById('namaVendor').value = data.nama_vendor || '';
+                    // Populate Surat pesanan details if available
+                    document.getElementById('nomorPesanan').value = data.nomor_pesanan || '';
+                    document.getElementById('tanggalPesanan').value = data.tanggal_pesanan || '';
+                    document.getElementById('nilaiPesanan').value = formatRupiah(data.harga_pesanan) || '';
+                    document.getElementById('namaVendor').value = data.nama_vendor || '';
 
-            // Populate Uang Muka details if available
-            document.getElementById('tanggalUmk').value = data.tanggal_umk || '';
-            document.getElementById('hargaUmk').value = formatRupiah(data.harga_umk) || '';
-            document.getElementById('vendorUmk').value = data.vendor_umk || '';
+                    // Populate Uang Muka details if available
+                    document.getElementById('tanggalUmk').value = data.tanggal_umk || '';
+                    document.getElementById('hargaUmk').value = formatRupiah(data.harga_umk) || '';
+                    document.getElementById('vendorUmk').value = data.vendor_umk || '';
 
-            // Populate SPPH details if available
-            document.getElementById('nomorSpph').value = data.nomor_spph || '';
-            document.getElementById('tanggalSpph').value = data.tanggal_spph || '';
-            document.getElementById('namaVendor1').value = data.nama_vendor1 || '';
-            document.getElementById('namaVendor2').value = data.nama_vendor2 || '';
-            document.getElementById('namaVendor3').value = data.nama_vendor3 || '';
+                    // Populate SPPH details if available
+                    document.getElementById('nomorSpph').value = data.nomor_spph || '';
+                    document.getElementById('tanggalSpph').value = data.tanggal_spph || '';
+                    document.getElementById('namaVendor1').value = data.nama_vendor1 || '';
+                    document.getElementById('namaVendor2').value = data.nama_vendor2 || '';
+                    document.getElementById('namaVendor3').value = data.nama_vendor3 || '';
 
-            // Populate Kontrak details if available
-            document.getElementById('nomorKontrak').value = data.nomor_kontrak || '';
-            document.getElementById('tanggalKontrak').value = data.tanggal_kontrak || '';
-            document.getElementById('vendorPemenang').value = data.vendor_pemenang || '';
-            document.getElementById('hargaKontrak').value = formatRupiah(data.harga_kontrak) || '';
+                    // Populate Kontrak details if available
+                    document.getElementById('nomorKontrak').value = data.nomor_kontrak || '';
+                    document.getElementById('tanggalKontrak').value = data.tanggal_kontrak || '';
+                    document.getElementById('vendorPemenang').value = data.vendor_pemenang || '';
+                    document.getElementById('hargaKontrak').value = formatRupiah(data.harga_kontrak) || '';
 
-            document.getElementById('documentDetailsModal').classList.remove('hidden');
-        })
-        .catch(error => console.error('Error fetching document details:', error));
-}
+                    document.getElementById('documentDetailsModal').classList.remove('hidden');
+                })
+                .catch(error => console.error('Error fetching document details:', error));
+        }
 
-// Menutup modal detail dokumen
-function closeDocumentDetailsModal() {
-    document.getElementById('documentDetailsModal').classList.add('hidden');
-}
+        // Menutup modal detail dokumen
+        function closeDocumentDetailsModal() {
+            document.getElementById('documentDetailsModal').classList.add('hidden');
+        }
 
-// *** FUNGSI UNTUK UPDATE STATUS ***
+        // *** FUNGSI UNTUK UPDATE STATUS ***
 
-// Fungsi untuk membuka modal dan mengisi data
-function openModal(id) {
-    document.getElementById('updateStatusModal').classList.remove('hidden');
-    document.getElementById('documentId').value = id;
+        // Fungsi untuk membuka modal dan mengisi data
+        function openModal(id) {
+            document.getElementById('updateStatusModal').classList.remove('hidden');
+            document.getElementById('documentId').value = id;
 
-    // Fetch existing status values and set them in the form
-    fetch(`/admin/getDocument/${id}`)
-        .then(response => response.json())
-        .then(data => {
-            document.getElementById('status_tor').value = data.status_tor;
-            document.getElementById('status_budgeting').value = data.status_budgeting;
-            document.getElementById('status_ppbj').value = data.status_ppbj;
-            document.getElementById('status_umk').value = data.status_pesan;
-            document.getElementById('status_pesanan').value = data.status_pesan;
-            document.getElementById('status_spph').value = data.status_pesan;
-            document.getElementById('status_kontrak').value = data.status_pesan;
-            document.getElementById('status_selesai').value = data.status_selesai;
-        });
-}
+            // Fetch existing status values and set them in the form
+            fetch(`/admin/getDocument/${id}`)
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('status_tor').value = data.status_tor;
+                    document.getElementById('status_budgeting').value = data.status_budgeting;
+                    document.getElementById('status_ppbj').value = data.status_ppbj;
+                    document.getElementById('status_umk').value = data.status_pesan;
+                    document.getElementById('status_pesanan').value = data.status_pesan;
+                    document.getElementById('status_spph').value = data.status_pesan;
+                    document.getElementById('status_kontrak').value = data.status_pesan;
+                    document.getElementById('status_selesai').value = data.status_selesai;
+                });
+        }
 
-// Menutup modal update status
-function closeUpdateStatusModal() {
-    document.getElementById('updateStatusModal').classList.add('hidden');
-}
+        // Menutup modal update status
+        function closeUpdateStatusModal() {
+            document.getElementById('updateStatusModal').classList.add('hidden');
+        }
 
 
         // Fungsi untuk membuka popup sukses
