@@ -202,68 +202,66 @@
         <h1 class="text-3xl font-bold mb-6">TAMBAH <span class="text-blue-500">DATA</span> :</h1>
         <div class="bg-white p-6 rounded-lg shadow-md">
 
-            <form id="tambahForm" action="/userTambah/tambahData" method="post">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div>
-                        <label for="nama_dokumen" class="block mb-2">Nama Barang/Jasa</label>
-                        <input type="text" id="nama_dokumen" name="nama_dokumen" class="w-full border border-gray-300 rounded-md p-2">
-                    </div>
-                    <div>
-                        <label for="tanggal" class="block mb-2">Tanggal Pembuatan TOR :</label>
-                        <input type="date" id="tanggal" name="tanggal" class="w-full border border-gray-300 rounded-md p-2">
-                    </div>
-                    <div>
-                        <label for="jenis_dokumen" class="block mb-2">Jenis Dokumen</label>
-                        <select id="jenisDokumen" name="jenis_dokumen" class="w-full p-2 border border-gray-300 rounded-md">
-                            <option value="">Pilih Jenis Dokumen</option>
-                            <option value="TOR">TOR</option>
-                            <option value="FORM KALIBRASI">FORM KALIBRASI</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label for="nama_bidang" class="block mb-2">Nama Bidang/Portofolio</label>
-                        <select id="nama_bidang" name="nama_bidang" class="w-full border border-gray-300 rounded-md p-2">
-                            <option value="">Pilih Nama Bidang/Portofolio</option>
-                            <option value="DUKBIS">DUKBIS</option>
-                            <option value="BIU">BIU</option>
-                            <option value="BIP">BIP</option>
-                            <option value="BIT">BIT</option>
-                            <option value="PDO">PDO</option>
-                            <option value="KDS">KDS</option>
-                            <option value="SRK">SRK</option>
-                            <option value="MNGT">MNGT</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label for="KABID" class="block mb-2">KABID</label>
-                        <select id="KABID" name="KABID" class="w-full p-2 border border-gray-300 rounded-md">
-                            <option value="">Pilih KABID</option>
-                            <?php foreach ($bidangs as $bidang) : ?>
-                                <option value="<?= esc($bidang['id']) ?>"><?= esc($bidang['nama_kepala']) ?></option>
-                            <?php endforeach; ?>
-                        </select>
-                    </div>
-                    <!-- Tambahan kolom baru -->
-                    <div>
-                        <label for="jumlah" class="block mb-2">Jumlah</label>
-                        <input type="number" id="jumlah" name="jumlah" class="w-full border border-gray-300 rounded-md p-2">
-                    </div>
-                    <div>
-                        <label for="harga_satuan" class="block mb-2">Harga Satuan</label>
-                        <input type="text" id="harga_satuan" name="harga_satuan" class="w-full border border-gray-300 rounded-md p-2">
-                    </div>
-                    <div>
-                        <label for="total_harga" class="block mb-2">Total Harga</label>
-                        <input type="text" id="total_harga" name="total_harga" class="w-full border border-gray-300 rounded-md p-2" readonly>
-                    </div>
-
+        <form id="tambahForm" action="/userTambah/tambahData" method="post" onsubmit="return validateForm()">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                    <label for="nama_dokumen" class="block mb-2">Nama Barang/Jasa</label>
+                    <input type="text" id="nama_dokumen" name="nama_dokumen" class="w-full border border-gray-300 rounded-md p-2" required>
                 </div>
-
-                <div class="flex flex-col md:flex-row justify-end mt-4 space-y-4 md:space-y-0 md:space-x-4">
-                    <button type="submit" class="w-full md:w-auto bg-blue-500 text-white py-2 px-4 rounded-md">Simpan</button>
-                    <a href="/user/dashboard" class="w-full md:w-auto bg-blue-200 text-blue-700 py-2 px-4 rounded-md text-center">Kembali</a>
+                <div>
+                    <label for="tanggal" class="block mb-2">Tanggal Pembuatan TOR :</label>
+                    <input type="date" id="tanggal" name="tanggal" class="w-full border border-gray-300 rounded-md p-2" required>
                 </div>
-            </form>
+                <div>
+                    <label for="jenis_dokumen" class="block mb-2">Jenis Dokumen</label>
+                    <select id="jenisDokumen" name="jenis_dokumen" class="w-full p-2 border border-gray-300 rounded-md" required>
+                        <option value="">Pilih Jenis Dokumen</option>
+                        <option value="TOR">TOR</option>
+                        <option value="FORM KALIBRASI">FORM KALIBRASI</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="nama_bidang" class="block mb-2">Nama Bidang/Portofolio</label>
+                    <select id="nama_bidang" name="nama_bidang" class="w-full border border-gray-300 rounded-md p-2" required>
+                        <option value="">Pilih Nama Bidang/Portofolio</option>
+                        <option value="DUKBIS">DUKBIS</option>
+                        <option value="BIU">BIU</option>
+                        <option value="BIP">BIP</option>
+                        <option value="BIT">BIT</option>
+                        <option value="PDO">PDO</option>
+                        <option value="KDS">KDS</option>
+                        <option value="SRK">SRK</option>
+                        <option value="MNGT">MNGT</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="KABID" class="block mb-2">KABID</label>
+                    <select id="KABID" name="KABID" class="w-full p-2 border border-gray-300 rounded-md" required>
+                        <option value="">Pilih KABID</option>
+                        <?php foreach ($bidangs as $bidang) : ?>
+                            <option value="<?= esc($bidang['id']) ?>"><?= esc($bidang['nama_kepala']) ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
+                <div>
+                    <label for="jumlah" class="block mb-2">Jumlah</label>
+                    <input type="number" id="jumlah" name="jumlah" class="w-full border border-gray-300 rounded-md p-2" required>
+                </div>
+                <div>
+                    <label for="harga_satuan" class="block mb-2">Harga Satuan</label>
+                    <input type="text" id="harga_satuan" name="harga_satuan" class="w-full border border-gray-300 rounded-md p-2" required>
+                </div>
+                <div>
+                    <label for="total_harga" class="block mb-2">Total Harga</label>
+                    <input type="text" id="total_harga" name="total_harga" class="w-full border border-gray-300 rounded-md p-2" readonly>
+                </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row justify-end mt-4 space-y-4 md:space-y-0 md:space-x-4">
+                <button type="submit" class="w-full md:w-auto bg-blue-500 text-white py-2 px-4 rounded-md">Simpan</button>
+                <a href="/user/dashboard" class="w-full md:w-auto bg-blue-200 text-blue-700 py-2 px-4 rounded-md text-center">Kembali</a>
+            </div>
+        </form>
 
             <!-- Popup -->
             <div id="popup">
@@ -279,6 +277,22 @@
             </div>
 
             <script>
+                function validateForm() {
+                    const inputs = document.querySelectorAll('#tambahForm [required]');
+                    let valid = true;
+
+                    inputs.forEach(input => {
+                        if (!input.value) {
+                            valid = false;
+                            input.classList.add('border-red-500');
+                            alert('Harap isi semua kolom yang wajib diisi.');
+                        } else {
+                            input.classList.remove('border-red-500');
+                        }
+                    });
+
+                    return valid;
+                }
                 document.addEventListener('DOMContentLoaded', function() {
                     const jumlahInput = document.getElementById('jumlah');
                     const hargaSatuanInput = document.getElementById('harga_satuan');
