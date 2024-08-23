@@ -124,3 +124,5 @@
 
 # # /results/
 # # /phpunit*.xml
+vendor/masterminds/html5
+vendor/sabberworm/php-css-parser
