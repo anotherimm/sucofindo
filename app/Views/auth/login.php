@@ -70,7 +70,7 @@
         </div>
         <div class="text-center">
             <a href="/auth/forgotPassword" class="font-bold" style="background-image: linear-gradient(to right, #03C0C3, #0286CA); color: transparent; -webkit-background-clip: text; background-clip: text;">
-                Forgot Password?
+                Lupa Password?
             </a>
         </div>
     </div>
