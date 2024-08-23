@@ -1,0 +1,27 @@
+CRITICAL - 2024-08-19 01:11:03 --> TypeError: Unsupported operand types: string * string
+[Method: POST, Route: userTambah/tambahData]
+in APPPATH/Controllers/UserTambah.php on line 38.
+ 1 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\UserTambah->tambahData()
+ 2 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserTambah))
+ 3 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-08-19 09:13:28 --> TypeError: Unsupported operand types: string * string
+[Method: POST, Route: userTambah/tambahData]
+in APPPATH/Controllers/UserTambah.php on line 38.
+ 1 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\UserTambah->tambahData()
+ 2 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserTambah))
+ 3 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-08-19 14:32:55 --> TypeError: Unsupported operand types: string * string
+[Method: POST, Route: userTambah/tambahData]
+in APPPATH/Controllers/UserTambah.php on line 38.
+ 1 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\UserTambah->tambahData()
+ 2 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UserTambah))
+ 3 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH/Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
