@@ -180,6 +180,7 @@
                 <thead>
                     <tr class="bg-blue-600 text-white">
                         <th class="w-1 border p-3 text-left">No</th>
+                        <th class="w-1 border p-3 text-left">ID</th>
                         <th class="w-2 border p-3 text-left">Nama Barang/Jasa</th>
                         <th class="w-3 border p-3 text-left">Jenis Dokumen</th>
                         <th class="w-4 border p-3 text-left">Nama Bidang/Portofolio</th>
@@ -191,6 +192,7 @@
                     <?php foreach ($dokumen as $index => $dokumenItem) : ?>
                         <tr>
                             <td class="border p-3"><?= $index + 1 ?></td>
+                            <td class="border p-3"><?= $dokumenItem['id'] ?></td>
                             <td class="border p-3"><?= $dokumenItem['nama_dokumen'] ?></td>
                             <td class="border p-3"><?= $dokumenItem['jenis_dokumen'] ?></td>
                             <td class="border p-3"><?= $dokumenItem['nama_bidang'] ?></td>
