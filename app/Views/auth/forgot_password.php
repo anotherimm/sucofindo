@@ -39,11 +39,11 @@
                 <input type="email" name="email" placeholder="Email" class="w-full border border-gray-300 p-2 rounded-md" required>
             </div>
             <div class="flex justify-center mt-4">
-                <button type="submit" class="bg-gradient-to-r from-blue-300 to-blue-600 text-white rounded-full py-2 px-6 font-bold w-full sm:w-56" style="background: linear-gradient(to right, #03C0C3, #0286CA);">Send Reset Link</button>
+                <button type="submit" class="bg-gradient-to-r from-blue-300 to-blue-600 text-white rounded-full py-2 px-6 font-bold w-full sm:w-56" style="background: linear-gradient(to right, #03C0C3, #0286CA);">Kirim Link Reset</button>
             </div>
         </form>
         <div class="text-center">
-            <a href="/auth/login" class="text-gradient font-bold" style="background-image: linear-gradient(to right, #03C0C3, #0286CA); color: transparent; -webkit-background-clip: text; background-clip: text;">Back to Login</a>
+            <a href="/auth/login" class="text-gradient font-bold" style="background-image: linear-gradient(to right, #03C0C3, #0286CA); color: transparent; -webkit-background-clip: text; background-clip: text;">Kembali Ke Login</a>
         </div>
     </div>
 </body>
