@@ -205,7 +205,7 @@ class Auth extends BaseController
             $userModel->update($user['id'], $updateData);
 
             // Confirm update success
-            session()->setFlashdata('msg_success', 'Your password has been updated successfully.');
+            session()->setFlashdata('msg_success', 'Password berhasil diperbarui, silahkan login!.');
             return redirect()->to('/auth/login');
         } else {
             return redirect()->to('/auth/reset_password/' . $token)->with('error', 'Invalid or expired reset link.');

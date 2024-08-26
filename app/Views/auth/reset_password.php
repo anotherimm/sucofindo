@@ -44,7 +44,7 @@
             </div>
         </form>
         <div class="text-center">
-            <a href="/auth/login" class="text-gradient font-bold" style="background-image: linear-gradient(to right, #03C0C3, #0286CA); color: transparent; -webkit-background-clip: text; background-clip: text;">Back to Login</a>
+            <a href="/auth/login" class="text-gradient font-bold" style="background-image: linear-gradient(to right, #03C0C3, #0286CA); color: transparent; -webkit-background-clip: text; background-clip: text;">Kembai ke Login</a>
         </div>
     </div>
 </body>
