@@ -223,6 +223,7 @@
             <table id="tableData" class="w-full table-auto bg-white shadow-md rounded-lg">
                 <thead>
                     <tr class="bg-blue-600 text-white text-center">
+                        <th class="w-1 border p-3">ID</th>
                         <th class="w-1 border p-3">No</th>
                         <th class="w-2 border p-3">Nama Barang/Jasa</th>
                         <th class="w-3 border p-3">Jenis Dokumen</th>
@@ -255,6 +256,7 @@
                             $shadowClass = $allPending ? 'shadow-blue' : '';
                             ?>
                             <tr class="<?= $shadowClass ?>">
+                                <td class="border p-3"><?= htmlspecialchars($document['id']) ?></td>
                                 <td class="border p-3 text-center"><?= $index + 1 ?></td>
                                 <td class="border p-3"><?= htmlspecialchars($document['nama_dokumen']) ?></td>
                                 <td class="border p-3"><?= htmlspecialchars($document['jenis_dokumen']) ?></td>
